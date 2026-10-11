@@ -12,7 +12,7 @@ export const Button = ({
     loading,
     underline,
     disabled, 
-    ...otherProps,
+    ...otherProps
 }) => {
    
     const buttonClasses = getStyle(
@@ -32,6 +32,7 @@ export const Button = ({
         <button 
         {...otherProps}
         className={buttonClasses}
+        disabled={disabled}
         >
         {loading ? (
             <Ellipsis

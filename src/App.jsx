@@ -4,7 +4,7 @@ function App() {
 
 
   return (
-    <Button color="primary" loading>
+    <Button color="primary" loading >
       Отправить
     </Button>
 
