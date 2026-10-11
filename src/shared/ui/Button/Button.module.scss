@@ -109,15 +109,13 @@ $pink-color: #e08478;
     top: 40%;
     left: 48%;
     transform: translate(-50%, -50%);
-}
 
-
-.loader circle {
+circle {
     fill: black;
     transform: scale(1.5);
     animation: fade-in 1.2s infinite;
 }
-
+}
 
 @keyframes fade-in {
     0% {

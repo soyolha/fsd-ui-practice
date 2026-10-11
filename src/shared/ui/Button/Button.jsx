@@ -5,46 +5,46 @@ import { Ellipsis } from 'lucide-react'
 export const Button = ({
     children,
     className,
-    color = 'primary',
-    circle = false,
-    cta = false,
-    loading = false,
-    disabled = false,
-    ...props
+    //color = 'primary' | 'secondary' | 'outline' | 'transperent' |
+    color,
+    circle,
+    cta, 
+    loading,
+    underline,
+    disabled, 
+    ...otherProps,
 }) => {
-    const isDisabled = disabled || color === "disabled";
-
+   
     const buttonClasses = getStyle(
         styles.button,
         {
             [styles.circle]: circle,
             [styles.cta]: cta,
-            [styles.disabled]: isDisabled,
+            [styles.disabled]: disabled,
         },
         [
-            color !== "disabled" ? styles[color] : null,
-            className
+            styles[color],
+            className,
         ]
     );
 
-    const showUnderline =
-    !cta && (color === "primary" || color === "outline");
-
-
     return(
         <button 
-        {...props}
+        {...otherProps}
         className={buttonClasses}
-        disabled={isDisabled}
         >
         {loading ? (
             <Ellipsis
-            className={getStyle(styles.loader, {}, [styles.waiting])}
+            className={getStyle(
+                styles.loader, 
+                {},
+                 [styles.waiting]
+                )}
             />
         ) : (
             children
         )}
-        {showUnderline && <span className={styles.underLine}/>}
+        {underline && <span className={styles.underline}/>}
         </button>
     )
 }
